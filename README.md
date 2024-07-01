@@ -23,6 +23,10 @@ The code in this repository turns CPEs into STIX 2.1 objects, and keeps them upd
 3. Stores the STIX 2.1 Objects in the file store
 4. Creates STIX Bundles of generated objects for each update run
 
+## tl;dr
+
+[![cpe2stix](https://img.youtube.com/vi/ZIj7Wo0iELc/0.jpg)](https://www.youtube.com/watch?v=ZIj7Wo0iELc)
+
 ## Install the script
 
 ```shell
