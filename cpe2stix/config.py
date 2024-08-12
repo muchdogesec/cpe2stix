@@ -57,6 +57,11 @@ class Config:
     CPE2STIX_MARKING_DEFINITION_REF = json.loads(load_file_from_url(url=CPE2STIX_MARKING_DEFINITION_URL))
     TLP_CLEAR_MARKING_DEFINITION = "marking-definition--94868c89-83c2-464b-929b-a1a8aa3c8487"
 
+    REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
+    REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
+    REDIS_URL = f"redis://{REDIS_HOST}:{REDIS_PORT}/0"
+
     @property
     def fs(self):
         return FileSystemStore(self.file_system)
+    
