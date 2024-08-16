@@ -62,7 +62,7 @@ class StixStore:
                     ex,
                 )
 
-    def store_cpe_in_bundle(self, stix_objects, filename=None, update=False):
+    def store_cpe_in_bundle(self, stix_objects, filename: str=None, update=False):
         namespace = uuid.UUID("5e6fc5ec-e507-52e7-8465-cf5ffc47138a")
         data = list(stix_objects)
         bundle_id = "bundle--" + str(uuid.uuid5(
@@ -81,6 +81,7 @@ class StixStore:
                 stix_bundle_file = f"{self.stix_bundle_path}/{filename}"
         if os.path.isfile(stix_bundle_file) and update == False:
             return None
+        logger.info("writing output to: %s", str(stix_bundle_file))
 
         with open(stix_bundle_file, "w") as f:
             f.write(json.dumps(json.loads(bundle_of_all_objects.serialize()), indent=4))

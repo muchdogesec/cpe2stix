@@ -5,6 +5,7 @@ from .stix_store import StixStore
 from .config import Config
 from .helper import delete_subfolders, append_data
 from .loggings import logger
+from stix2.datastore.filters import Filter
 
 
 if bool(os.getenv(" ")):
@@ -42,10 +43,13 @@ def preparing_results(task_results, config, filename=None):
     results = []
     results = map_marking_definition(config, results)
     results = append_data(results, config.file_system)
-
-    stix_store = StixStore(
-        config.stix2_objects_folder, config.stix2_bundles_folder
-    )
-    stix_store.store_cpe_in_bundle(results, filename, update=True)
+    softwares = config.fs.query([Filter("type", "=", "software")])
+    if softwares:
+        stix_store = StixStore(
+            config.stix2_objects_folder, config.stix2_bundles_folder
+        )
+        stix_store.store_cpe_in_bundle(results, filename, update=True)
+    else:
+        logger.info("Not writing any file because no output")
     if bool(os.getenv("CENTRAL_CELERY")):
         delete_subfolders(config.stix2_objects_folder)
