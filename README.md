@@ -2,12 +2,6 @@
 
 A command line tool that turns NVD CPE records into STIX 2.1 Objects.
 
-## Before you get started
-
-If you do not want to backfill, maintain, or support your own CPE STIX objects check out CTI Butler which provides a fully manage database of these objects and more!
-
-https://www.ctibutler.com/
-
 ## Overview
 
 Having a standardised way of to describe CPEs becomes very useful when managing software tools you're using. That is where Common Platform Enumerations (CPEs) come in;
@@ -118,8 +112,6 @@ celery -A cpe2stix.celery worker --loglevel=info --purge
 ```
 
 ## Mapping information
-
-BEFORE CONTINUING: [I STRONGLY recommend you read our blog on CVE/CPE API responses](https://www.dogesec.com/blog/converting_cve_cpe_to_stix_objects/), and the logic to interpret them. The blog can be found here. It is also linked at the bottom of this readme. This code is built around that logic.
 
 ### Marking Definition / Identity
 
