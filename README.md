@@ -23,6 +23,8 @@ The code in this repository turns CPEs into STIX 2.1 objects, and keeps them upd
 
 [![cpe2stix](https://img.youtube.com/vi/ZIj7Wo0iELc/0.jpg)](https://www.youtube.com/watch?v=ZIj7Wo0iELc)
 
+[Watch the demo](https://www.youtube.com/watch?v=ZIj7Wo0iELc).
+
 ## Install the script
 
 ```shell
