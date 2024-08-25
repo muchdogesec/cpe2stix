@@ -1,8 +1,10 @@
 # cpe2stix
 
-A command line tool that turns NVD CPE records into STIX 2.1 Objects.
-
 ## Overview
+
+![](docs/cpe2stix.png)
+
+A command line tool that turns NVD CPE records into STIX 2.1 Objects.
 
 Having a standardised way of to describe CPEs becomes very useful when managing software tools you're using. That is where Common Platform Enumerations (CPEs) come in;
 
