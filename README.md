@@ -1,5 +1,9 @@
 # cpe2stix
 
+## Before you begin
+
+We host a full web API that includes all objects created by cpe2stix, [Vulmatch](https://www.vulmatch.com/).
+
 ## Overview
 
 ![](docs/cpe2stix.png)
