@@ -121,11 +121,12 @@ celery -A cpe2stix.celery worker --loglevel=info --purge
 
 ## Mapping information
 
-### Marking Definition / Identity
+### Marking Definition / Extension Definition
 
-These are hardcoded and imported from our [stix4doge repository](https://github.com/muchdogesec/stix4doge). Specifically these objects;
+These are hardcoded and imported:
 
 * Marking Definition: https://raw.githubusercontent.com/muchdogesec/stix4doge/main/objects/marking-definition/cpe2stix.json
+* Extension Definition: https://raw.githubusercontent.com/muchdogesec/stix2extensions/refs/heads/main/extension-definitions/properties/software-cpe-properties.json
 
 ### Software
 
@@ -147,7 +148,26 @@ cpe2stix creates Software SCOs for CPEs as follows;
     "object_marking_refs": [
         "marking-definition--94868c89-83c2-464b-929b-a1a8aa3c8487",
         "<IMPORTED MARKING DEFINTION OBJECT>"
-    ]
+    ],
+    "extensions": {
+        "extension-definition--82cad0bb-0906-5885-95cc-cafe5ee0a500": {
+            "extension_type": "toplevel-property-extension"
+        }
+    },
+    "x_cpe_struct": {
+        "cpe_version": "<CPE_VERSION>",
+        "part": "<PART>",
+        "vendor": "<VENDOR>",
+        "product": "<PRODUCT>",
+        "version": "<VERSION>",
+        "update": "<UPDATE>",
+        "edition": "<EDITION>",
+        "language": "<LANGUAGE>",
+        "sw_edition": "<SW_EDITION>",
+        "target_sw": "<TARGET_SW>",
+        "target_hw": "<TARGET_HW>",
+        "other": "<OTHER>"
+    }
 }
 ```
 
