@@ -50,23 +50,17 @@ If you're on Mac, like me, the easiest way to do this is;
 brew install redis
 ```
 
-## Setup configoration options
+### Configuration options
 
-You will need to create an `.env` file as follows;
+cpe2stix has various settings that are defined in an `.env` file.
+
+To create a template for the file:
 
 ```shell
 cp .env.example .env
 ```
 
-You will then need to set te variables as follows;
-
-* `NVD_API_KEY` (required): your NVD API key. Get one for free here: https://nvd.nist.gov/developers/start-here
-	* note, the script will work without it, but it is very likely you will run into rate limit errors.
-* `CPE_LAST_MODIFIED_EARLIEST` (required): the earliest CPE date you want results for. CPEs with a value less than `cpe.lastModified` time will be ignored. Enter in format `YYYY-MM-DDThh:mm:ss`. Note, the script will use the NVD APIs `lastModStartDate` parameter for this.
-* `CPE_LAST_MODIFIED_LATEST` (required): default is script run time. CPEs with a `cpe.lastModified` greater than the time entered will be ignored. Enter in format `YYYY-MM-DDThh:mm:ss`. The script uses the `lastModEndDate` parameter on the NVD API for this.
-* `RESULTS_PER_PAGE` (required): default is `1000`. Maximum value allowed is `10000`. Defines the number of results per page to be returned on the NVD API (using the `resultsPerPage` parameter). This does not change the data returned by the script. It is designed to reduce timeouts when large pages are returned.
-
-IMPORTANT: if the time between `CPE_LAST_MODIFIED_EARLIEST` and `CPE_LAST_MODIFIED_LATEST` is greater than 120 days, the script will batch celery jobs with different `lastModStartDate` and `lastModEndDate` as NVD only allows for a range of 120 days to be specified in a request.
+To see more information about how to set the variables, and what they do, read the `.env.markdown` file.
 
 ## Running the script
 
