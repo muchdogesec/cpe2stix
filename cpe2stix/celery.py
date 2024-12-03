@@ -6,6 +6,7 @@ from .config import Config
 from .helper import delete_subfolders, append_data
 from .loggings import logger
 from stix2.datastore.filters import Filter
+from stix2extensions._extensions import software_cpe_properties_ExtensionDefinitionSMO
 
 
 if bool(os.getenv(" ")):
@@ -40,6 +41,7 @@ def cpe_syncing_task(start, end, config):
 def preparing_results(task_results, config, filename=None):
     from .main import map_marking_definition
     config = Config(**config)
+    config.fs.add(software_cpe_properties_ExtensionDefinitionSMO)
     results = []
     results = map_marking_definition(config, results)
     results = append_data(results, config.file_system)
